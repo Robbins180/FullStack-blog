@@ -1,0 +1,68 @@
+--root {
+    font-family: 'Josefin Sans','Lora', sans-serif;
+}
+
+/* NavBar Menu */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Josefin Sans';
+    z-index: 999;
+}
+
+.top-left, .top-right {
+    flex: 3;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-center {
+    flex: 6;
+}
+
+.navIcon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
+}
+
+.top-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-list {
+    display:flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+
+}
+
+.nav-list-item {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.navSearchIcon {
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 15px;
+}
+

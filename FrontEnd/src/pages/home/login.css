@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:ital@1&family=Varela&family=Varela+Round&display=swap');
+
+.login {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+    rgba(155,255,255,0.5),
+    rgba(155,255,155,0.5)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAWj4DXiNLNrxxonTe9n9paHo3EWFJAFIS4w&usqp=CAU');
+    background-size: cover;
+}
+
+.login-title {
+    font-size: 50px;
+    font-family: 'Lora', serif;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.login-form > label {
+    margin: 10px 0;
+}
+
+.login-input {
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+}
+
+.login-button {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.login-register-button {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: teal;
+    cursor: pointer;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
