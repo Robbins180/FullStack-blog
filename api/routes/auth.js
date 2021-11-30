@@ -2,6 +2,14 @@ const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
+/* Error code: {
+    200: request has succeeded
+    401: request has not been completed because it lacks valid authentication
+    404: page not found
+    500: Internal server error
+    }
+ */
+
 
 //REGISTER
 router.post("/Register", async (req, res) => {
