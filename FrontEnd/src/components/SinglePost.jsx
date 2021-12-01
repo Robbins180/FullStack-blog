@@ -2,6 +2,7 @@ import React from 'react'
 import './singlePost.css'
 
 const SinglePost = () => {
+    
     return (
         <div className='singlePost'>
             <div className="singlePost-wrapper">
