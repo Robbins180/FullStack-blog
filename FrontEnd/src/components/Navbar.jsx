@@ -29,6 +29,7 @@ const Navbar = () => {
                    user ? (
                 <img 
                 className='top-img ' 
+                alt='top'
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE9tG_NFfmLde3aA3q3p2yib1KJslRRNlJQg&usqp=CAU' />
                    ) : (
                        <ul className='nav-list'>

@@ -13,7 +13,7 @@ const Settings = () => {
                 <form action="" className="settings-form">
                     <label>Profile Picture</label>
                     <div className="settings-profile-pic">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_dXsSkJVi3c55l7skxHe3xBRhOO195jnlw&usqp=CAU" alt="profile picture"/>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_dXsSkJVi3c55l7skxHe3xBRhOO195jnlw&usqp=CAU" alt='profile' />
 
                         <label htmlFor='file-input'>
                             <i class=" settings-profile-pic-icon far fa-user-circle"></i>
