@@ -1,27 +1,50 @@
-import React from 'react'
-import './singlePost.css'
+
+import './singlePost.css';
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const SinglePost = () => {
-    
+        const location = useLocation()
+        const path = location.pathname.split('/')[2];
+        const [post, setPost] = useState({});
+
+        useEffect(() => {
+            const getPost = async () => {
+                const res = await axios.get('/posts/' + path)
+                setPost(res.data);
+            };
+            getPost()
+        }, [path]);
+
     return (
         <div className='singlePost'>
             <div className="singlePost-wrapper">
-                <img 
-                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSeY7m5faawBTjD-ztZvFjWOVnbVlAoroRzA&usqp=CAU'
-                    alt='palm-trees'
-                    className='singlePost-img'/>
-
-                    <h1 className="singlePost-title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    {post.photo && (
+                    <img 
+                        src={post.photo}
+                        alt='photos'
+                        className='singlePost-img'
+                    />
+                    )}
+                    <h1 className="singlePost-title">{post.title}
                         <div className="singlePost-edit">
                              <i className=" singlePostIcon far fa-edit"></i>
                              <i className=" singlePostIcon far fa-trash-alt"></i>
                         </div>
                     </h1>
                     <div className="singlePost-info">
-                        <span className='singlePost-author'>Author: <b>Drew</b></span>
-                        <span className='singlePost-date'> 1 hour ago</span>
+                        <span className="singlePost-author">
+                            Author:
+                            <Link to={`/?user=${post.username}`} className="link">
+                            <b> {post.username}</b>
+                            </Link>
+                        </span>
+                        <span className='singlePost-date'>{new Date(post.createdAt).toDateString()}</span>
                     </div>
-                    <p className='singlePost-desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illo unde quae delectus possimus distinctio, alias illum architecto recusandae et harum voluptatum fugiat at velit. Itaque, omnis. Ut, id saepe?</p>
+                    <p className='singlePost-desc'>{post.desc}</p>
+               
             </div>
         </div>
     )

@@ -1,7 +1,19 @@
-import React from 'react'
-import './sidebar.css'
+import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import axios from 'axios';
+import './sidebar.css';
 
 const Sidebar = () => {
+    const [cats, setCats] = useState([]);
+
+    useEffect(() => {
+      const getCats = async () => {
+        const res = await axios.get("/categories");
+        setCats(res.data);
+      };
+      getCats();
+    }, []);
+
     return (
         <div className='sidebar'>
             <div className='sidebar-item'>
@@ -12,12 +24,12 @@ const Sidebar = () => {
             <div className='sidebar-item'>
                  <span className='sidebar-title'>CATAGORIES</span>
                  <ul className='sidebar-list'>
-                     <li className='sidebar-list-item'>Life</li>
-                     <li className='sidebar-list-item'>Music</li>
-                     <li className='sidebar-list-item'>Style</li>
-                     <li className='sidebar-list-item'>Sport</li>
-                     <li className='sidebar-list-item'>Tech</li>
-                     <li className='sidebar-list-item'>Cinema</li>
+                    {cats.map((c) => (
+                        <Link to={`/?cat=${c.name}`} className="link">
+                        <li className="sidebar-list-item">{c.name}</li>
+                        </Link>
+                    ))}
+                        {/* c is for category, maps over all possible categories */}
                  </ul>
             </div>
             <div className='sidebar-item'>

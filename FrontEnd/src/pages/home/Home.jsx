@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
 import './home.css'
 import Header from '../../components/Header'
 import Posts from '../../components/Posts'
@@ -6,15 +7,17 @@ import Sidebar from '../../components/Sidebar'
 import axios from 'axios';
 
 const Home = () => { 
-    const [ posts , setPost] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const { search } = useLocation();
+
 
     useEffect(() => {
-        const fetchPost = async () => {
-           const res = await axios.get('/posts')
-           setPost(res.data)
-        }
-        fetchPost()
-    },[])
+        const fetchPosts = async () => {
+          const res = await axios.get("/posts" + search);
+          setPosts(res.data);
+        };
+        fetchPosts();
+      }, [search]);
 
     return (
         <>

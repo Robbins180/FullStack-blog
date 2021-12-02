@@ -8,7 +8,7 @@ const Post = ({ post }) => {
             {post.photo && (
             <img className ='post-img'
                 src={post.photo}
-                alt='photo' />
+                alt='' />
                 )}
             <div className="post-info">
                 <div className="post-cats">
