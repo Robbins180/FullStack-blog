@@ -14,7 +14,7 @@ const Login = () => {
                 <button className='login-button'>Login</button>
             </form>
             <button className="login-register-button">
-                <Link  className='link' to='/signup'>Sign Up</Link>
+                <Link  className='link' to='/register'>Register</Link>
             </button>
         </div>
     )
