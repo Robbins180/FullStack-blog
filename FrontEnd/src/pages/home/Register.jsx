@@ -17,6 +17,7 @@ const Register = () => {
             const res = await axios.post('/auth/register', {
                 username, email, password,
             });
+            {/* IF successfully registered above. Reroute should be the login page */}
             res.data && window.location.replace('/login');
          } catch (err) {
              setError(true);
@@ -46,6 +47,7 @@ const Register = () => {
             <button className="register-login-button">
                  <Link className='link' to='/login'>Login</Link>
             </button>
+            {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong!</span>}
         </div>
     )
 }
