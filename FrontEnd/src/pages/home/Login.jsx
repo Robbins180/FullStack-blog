@@ -9,7 +9,7 @@ const Login = () => {
 
     const userRef = useRef();
     const passwordRef = useRef();
-    const { dispatch, isFetching } = useContext(Context);
+    const { user, dispatch, isFetching } = useContext(Context);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ const Login = () => {
           dispatch({ type: "LOGIN_FAILURE" });
         }
       };
-
+      console.log(user);
     return (
         <div className='login'>
             <span className="login-title">Login</span>

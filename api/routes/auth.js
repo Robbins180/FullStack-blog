@@ -12,7 +12,7 @@ const bcrypt = require("bcrypt");
 
 
 //REGISTER
-router.post("/Register", async (req, res) => {
+router.post("/register", async (req, res) => {
     try {
       const salt = await bcrypt.genSalt(10);
       const hashedPass = await bcrypt.hash(req.body.password, salt);
@@ -33,23 +33,22 @@ router.post("/Register", async (req, res) => {
 
 //LOGIN
 
-router.post('/Login', async (req,res) => {
+router.post('/login', async (req,res) => {
   try {
-      const user = await User.findOne({ username: req.body.username })
+      const user = await User.findOne({ username: req.body.username });
       /* Wrong Login Credentials */
-      !user && res.status(400).json('Wrong credentials!')
+      !user && res.status(400).json("Wrong credentials!");
 
-      const validate = await bcrypt.compare(req.body.password, user.password)
-      !validated && res.status(400).json('Wrong credentials!')
+      const validated = await bcrypt.compare(req.body.password, user.password);
+      !validated && res.status(400).json("Wrong credentials!");
        /* Invalidated Login Credentials */
       
-       const { password, ...others } = user._doc
-       res.status(200).json(others)
+       const { password, ...others } = user._doc;
+        res.status(200).json(others);
         /* Takes the password and 'Other' elements from the user to hide it */
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

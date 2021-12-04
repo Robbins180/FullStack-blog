@@ -7,15 +7,16 @@ import Write from './pages/home/Write.jsx'
 import Settings from './pages/home/Settings.jsx'
 import Login from './pages/home/Login.jsx'
 import Register from './pages/home/Register.jsx'
+import { useContext } from "react";
+import { Context } from "./context/Context";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
 } from 'react-router-dom'
 
 function App() {
-  const user = false; 
+  const { user } = useContext(Context);
   return (
       <Router>
         <Navbar /> 
