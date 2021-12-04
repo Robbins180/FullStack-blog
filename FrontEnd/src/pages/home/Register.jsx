@@ -17,7 +17,7 @@ const Register = () => {
             const res = await axios.post('/auth/register', {
                 username, email, password,
             });
-            {/* IF successfully registered above. Reroute should be the login page */}
+            /* If successfully registered above. Reroute should be the login page */
             res.data && window.location.replace('/login');
          } catch (err) {
              setError(true);
